@@ -39,14 +39,16 @@ $items = $itemsQuery->rowCount()? $itemsQuery : [];
             
             <?php if(!empty($items)): ?>
             <ul class="items">
+              
                <?php foreach($items as $item): ?>
                 <li>
                     <span class="item<?php echo $item['done'] ? ' done' : ''?>"><?php echo $item['name']; ?></span>
                     <?php if(!$item['done']): ?>
-                    <a href="#" class="done-button">Mark as done</a>
+                    <a href="mark.php?as=done&item=<?php echo $item['id']?>" class="done-button">Mark as done</a>
                     <?php endif; ?>
                 </li>
                <?php endforeach; ?>
+               
             </ul>
             
             <?php else: ?>
