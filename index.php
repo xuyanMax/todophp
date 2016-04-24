@@ -32,10 +32,9 @@ $items = $itemsQuery->rowCount()? $itemsQuery : [];
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     </head>
     
-      
     <body>
       <div class="list">
-            <h1 class="header">To do.</h1>
+            <h1 class="header aaa">Todos.</h1>
             
             <?php if(!empty($items)): ?>
             <ul class="items">
@@ -45,6 +44,10 @@ $items = $itemsQuery->rowCount()? $itemsQuery : [];
                     <span class="item<?php echo $item['done'] ? ' done' : ''?>"><?php echo $item['name']; ?></span>
                     <?php if(!$item['done']): ?>
                     <a href="mark.php?as=done&item=<?php echo $item['id']?>" class="done-button">Mark as done</a>
+                    
+                    <?php elseif($item['done']): ?>
+                    <a href="delete.php?as=delete&item=<?php echo $item['id']?>" class="delete-button">Delete</a>                   
+                    
                     <?php endif; ?>
                 </li>
                <?php endforeach; ?>
