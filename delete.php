@@ -15,8 +15,7 @@ if (isset($_GET['as'], $_GET['item'])) {
                 DELETE FROM items
                 WHERE id = :item
                 AND user = :user
-                
-                
+                   
             ");
             $doneQuery->execute([
                 'item'=> $item,
